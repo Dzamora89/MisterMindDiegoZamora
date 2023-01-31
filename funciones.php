@@ -31,3 +31,14 @@ function comprobarJugada($array,$clave)
     }
     $_SESSION['resultados'] = $resultado;
 }
+
+function comprobarFinJuego($resultado): bool
+{
+    $ganador = true;
+    foreach ($resultado as $item) {
+        if ($item != 2){
+            $ganador = false;
+        }
+    }
+    return $ganador;
+}

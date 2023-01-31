@@ -1,7 +1,6 @@
 <?php
-
-include_once "funciones.php";
 session_start();
+include_once "funciones.php";
 if (!empty($_SESSION['clave'])){
     $clave = $_SESSION['clave'];
 }else {
@@ -36,22 +35,26 @@ if (!empty($_SESSION['clave'])){
     if (!empty($_POST['enviado'])){
         $jugada = array($_POST['digito1'],$_POST['digito2'],$_POST['digito3'],$_POST['digito4']);
         $_SESSION['jugada'] = $jugada;
-    }
-comprobarJugada($_SESSION['jugada'],$_SESSION['clave']);
-
-
-    $resultados = $_SESSION['resultados'];
-foreach ($resultados as $resultado) {
-    if ($resultado == 2){
-        echo "Muerto <br>";
-    }
-    if ($resultado == 1){
-        echo "Tocado <br>";
-    }
-    if ($resultado == 0){
-        echo "Fallo <br>";
+        comprobarJugada($_SESSION['jugada'],$_SESSION['clave']);
+        $resultados = $_SESSION['resultados'];
+        if (comprobarFinJuego($_SESSION['resultados'])){
+            echo "Has Ganado";
+        }else {
+            foreach ($resultados as $resultado) {
+                if ($resultado == 2){
+                    echo "Muerto <br>";
+                }
+                if ($resultado == 1){
+                    echo "Tocado <br>";
+                }
+                if ($resultado == 0){
+                    echo "Fallo <br>";
+                }
+            }
     }
 }
+
+
 
 
 ?>
