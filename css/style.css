@@ -1,58 +1,26 @@
-.contenedor {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-h1 {
-        display: inline-block;
-        margin: 0 auto;
-        border: red 3px dashed;
-        text-align: center;
-    }
-#clave {
-    background-color: turquoise;
-    padding: 0 200px;
-    margin-top: 50px;
-}
-span {
-    padding: 10px;
-    background-color: blue;
-    color: white;
-    font-weight: bolder;
-    opacity: 0;
-}
-span:hover{
-    opacity: 1;
-}
-
-#aciertos {
-    background-color: turquoise;
-    padding: 0 200px;
-    margin-top: 50px;
-}
- #aciertos div {
-     display: inline-block;
+input[type=Number]::-webkit-inner-spin-button,
+input[type=Number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
     text-align: center;
-     background-color: paleturquoise;
-     color: blue;
-     font-weight: bolder;
-     margin-right: 10px;
- }
-
- #aciertos p {
-     display: inline-block;
-     background-color: lightgoldenrodyellow;
-     padding: 15px;
-     margin-right: 85px;
- }
-
-.intentos {
-    background-color: turquoise;
-    padding: 10px 200px;
-    margin-top: 50px;
 }
 
-.intentos input{
-    display: inline-block;
+input[type=Number] { -moz-appearance:textfield;
+    text-align: center;
+    width: 50px;
+    padding: 10px 10px;
+    font-weight: bolder;
+    }
+
+.color2{
+background-color: red;
+    border: red;
+    color: white;
+
+}
+
+.color1{
+background-color: blue;
+border: blue;
+    color: white;
 }
