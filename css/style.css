@@ -15,16 +15,16 @@ input[type=Number] { -moz-appearance:textfield;
     }
 
 .color2{
-background-color: red;
-    border: red;
-    color: white;
+background-color: #53e753;
+    border: #53e753;
+    color: black;
 
 }
 
 .color1{
-background-color: blue;
-border: blue;
-    color: white;
+background-color: #e5e561;
+border: #e5e561;
+    color: black;
 }
 #cerebroIMG{
     z-index: 2;

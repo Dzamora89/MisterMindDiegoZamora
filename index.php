@@ -92,7 +92,7 @@ if (empty($_SESSION['clave'])){
         <input type="Number" name="digito3" min="0" max="9" required>
         <input type="Number" name="digito4" min="0" max="9" required>
         </div>
-        <button class="btn btn-dark " name="enviado" value="si" type="submit">Enviar</button>
+        <button class="btn btn-dark mt-3 " name="enviado" value="si" type="submit">Enviar</button>
     </form>
 </div>
 </body>
