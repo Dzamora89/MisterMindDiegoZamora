@@ -5,6 +5,7 @@ if (empty($_SESSION['clave'])){
     $_SESSION['clave'] = generarClave();
     $_SESSION['resultados'] = array();
     $_SESSION['jugadas'] = array();
+    $_SESSION['numJugadas'] = 0;
 }
 //https://www.youtube.com/watch?v=2-hTeg2M6GQ
 //Como Se juega
@@ -40,25 +41,28 @@ if (empty($_SESSION['clave'])){
     <?php
         if (!empty($_POST['enviado'])){
             $_SESSION['jugada'][]  = array($_POST['digito1'],$_POST['digito2'],$_POST['digito3'],$_POST['digito4']);
-            $_SESSION['numJugadas'] = 0;
+            $_SESSION['numJugadas']++;
             $_SESSION['resultados'][] = comprobarJugada($_SESSION['jugada'][count($_SESSION['jugada'])-1],$_SESSION['clave']);
             if (comprobarFinJuego($_SESSION['resultados'][count($_SESSION['resultados'])-1])){
                 echo '<div class="container-fluid ">
     <div class="container d-flex justify-content-center flex-column align-items-center">
+    <h1 class="text-white">Enhorabuena has descifrado el codigo en '.$_SESSION['numJugadas'].' intento/s</h1>
     <img src="Images/pexels-stefano-lissa-588266.jpg" class="img-fluid w-50">
-    <h1 class="text-white">Enhorabuena has descifrado el codigo en '.$_SESSION['numJugadas'].' intentos</h1>
+    
     </div>
 </div>';
+                session_unset();
+                unset($_POST);
             }else {
                 echo '<h1 class="text-white text-center"> Tus Jugadas </h1>';
                 for ($i = 0; $i < count($_SESSION['jugada']); $i++) {
-
-                    if (($_SESSION['numJugadas'] % 4) == 0 ){
+                    if (($i % 4) == 0 ){
                         echo '<div class="container d-flex"> ';
+                        $numeroDiv = 0;
                     }
                     echo '
                 <div id="jugadas" class="container-fluid justify-content-center flex-column d-flex align-items-center">
-    <h3 class="text-white">Intento nº '.$_SESSION['numJugadas'].'</h3>
+    <h3 class="text-white">Intento nº '.$i +1 .'</h3>
     <div class=" justify-content-center d-flex align-items-center gap-2 text-center">
     <input type="Number" value="'.$_SESSION['jugada'][$i][0].'" readonly class="color'.$_SESSION['resultados'][$i][0].'">
     <input type="Number" value="'.$_SESSION['jugada'][$i][1].'" readonly class="color'.$_SESSION['resultados'][$i][1].'">
@@ -66,10 +70,11 @@ if (empty($_SESSION['clave'])){
     <input type="Number" VALUE="'.$_SESSION['jugada'][$i][3].'" readonly class="color'.$_SESSION['resultados'][$i][3].'">
     </div>
 </div>';
-                    if (($_SESSION['numJugadas'] % 4) == 0 ){
+                    $numeroDiv++;
+                    if (($numeroDiv % 4) == 0 ){
                         echo '</div> ';
                     }
-                    $_SESSION['numJugadas']++;
+
                 }
             }
         }
@@ -79,17 +84,16 @@ if (empty($_SESSION['clave'])){
 
 
 <div class="container-fluid justify-content-center flex-column d-flex align-items-center">
-    <h3 class="text-white">Intentalo de Nuevo</h3>
+    <h3 class="text-white">Introduce tu secuencia</h3>
     <form class="container-fluid justify-content-center flex-column d-flex align-items-center" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
         <div class="container-fluid justify-content-center d-flex align-items-center gap-2 text-center">
-        <input type="Number" name="digito1" >
-        <input type="Number" name="digito2">
-        <input type="Number" name="digito3">
-        <input type="Number" name="digito4">
+        <input type="Number" name="digito1" min="0" max="9" required>
+        <input type="Number" name="digito2" min="0" max="9" required>
+        <input type="Number" name="digito3" min="0" max="9" required>
+        <input type="Number" name="digito4" min="0" max="9" required>
         </div>
         <button class="btn btn-dark " name="enviado" value="si" type="submit">Enviar</button>
     </form>
-
 </div>
 </body>
 </html>
