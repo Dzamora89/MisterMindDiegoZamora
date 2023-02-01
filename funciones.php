@@ -29,7 +29,7 @@ function comprobarJugada($array,$clave)
                $resultado[$i] = 0;
            }
     }
-    $_SESSION['ultimoResultado'] = $resultado;
+    return $resultado;
 }
 
 function comprobarFinJuego($resultado): bool

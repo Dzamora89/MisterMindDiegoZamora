@@ -24,3 +24,13 @@ background-color: blue;
 border: blue;
     color: white;
 }
+#cerebroIMG{
+    z-index: 2;
+}
+#cerebroIMG:hover{
+    opacity: 0;
+}
+
+#jugadas{
+    width: 75vw;
+}
