@@ -47,7 +47,7 @@ if (empty($_SESSION['clave'])){
                 echo '<div class="container-fluid ">
     <div class="container d-flex justify-content-center flex-column align-items-center">
     <h1 class="text-white">Enhorabuena has descifrado el codigo en '.$_SESSION['numJugadas'].' intento/s</h1>
-    <img src="Images/pexels-stefano-lissa-588266.jpg" class="img-fluid w-50">
+    <img src="Images/pexels-stefano-lissa-588266.jpg" class="img-fluid w-50" alt="Ganador">
     
     </div>
 </div>';
@@ -87,10 +87,10 @@ if (empty($_SESSION['clave'])){
     <h3 class="text-white">Introduce tu secuencia</h3>
     <form class="container-fluid justify-content-center flex-column d-flex align-items-center" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
         <div class="container-fluid justify-content-center d-flex align-items-center gap-2 text-center">
-        <input type="Number" name="digito1" min="0" max="9" required>
-        <input type="Number" name="digito2" min="0" max="9" required>
-        <input type="Number" name="digito3" min="0" max="9" required>
-        <input type="Number" name="digito4" min="0" max="9" required>
+        <input tabindex="1" type="Number" name="digito1" min="0" max="9" required>
+        <input tabindex="2" type="Number" name="digito2" min="0" max="9" required>
+        <input tabindex="3" type="Number" name="digito3" min="0" max="9" required>
+        <input tabindex="4" type="Number" name="digito4" min="0" max="9" required>
         </div>
         <button class="btn btn-dark mt-3 " name="enviado" value="si" type="submit">Enviar</button>
     </form>
